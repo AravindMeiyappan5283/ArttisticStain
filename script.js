@@ -2,11 +2,21 @@ const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
 const bookingForm = document.querySelector("#booking-form");
 const formNote = document.querySelector("#form-note");
+const scrollProgress = document.querySelector(".scroll-progress span");
 const revealItems = document.querySelectorAll(
   ".section-heading, .intro-grid, .service-card, .gallery-grid figure, .timeline article, .testimonial-inner, .faq-list details, .booking-copy, .booking-form"
 );
 
 document.documentElement.classList.add("js");
+
+const updateScrollProgress = () => {
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+  scrollProgress.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+};
+
+updateScrollProgress();
+window.addEventListener("scroll", updateScrollProgress, { passive: true });
 
 navToggle.addEventListener("click", () => {
   const isOpen = siteNav.classList.toggle("is-open");
