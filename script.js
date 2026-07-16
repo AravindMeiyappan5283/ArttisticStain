@@ -69,7 +69,7 @@ bookingForm.addEventListener("submit", (event) => {
   const message = data.get("message").trim();
 
   const lines = [
-    "Hello Artistic Stain, I would like to enquire about a hand henna booking.",
+    "Hello Artistic Stain, I would like to enquire about a henna booking.",
     `Name: ${name}`,
     `Phone: ${phone}`,
     `Event date: ${date}`,
